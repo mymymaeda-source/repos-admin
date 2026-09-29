@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#09090b">
+  <title>REPOS ADMIN</title>
+  <style>
+:root{--bg:#08090b;--panel:#111216;--panel2:#17191f;--line:#2a2c32;--text:#f4f1ea;--muted:#9b978f;--gold:#d7b46a;--gold2:#f0d899;--ok:#7fc8a9;--danger:#de8585;--shadow:0 22px 60px rgba(0,0,0,.38);--r:18px}*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:radial-gradient(circle at 88% -5%,#1e180b 0,transparent 28%),var(--bg);color:var(--text);font-family:Inter,"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}.hidden{display:none!important}.boot,.center-screen{min-height:100vh;display:grid;place-items:center;padding:24px}.boot{align-content:center;gap:14px;color:var(--muted)}.spinner{width:34px;height:34px;border:3px solid #2d2d31;border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}.auth-card{width:min(440px,100%);border:1px solid #373126;background:linear-gradient(180deg,#171611,#0e0f12);border-radius:26px;padding:34px;box-shadow:var(--shadow)}.brand{display:flex;align-items:center;gap:12px}.brand-mark{width:42px;height:42px;border:1px solid var(--gold);border-radius:12px;display:grid;place-items:center;color:var(--gold2);font-family:Georgia,serif;font-weight:700}.brand strong{letter-spacing:.16em}.brand small{display:block;color:var(--muted);margin-top:2px}.auth-card h1{font-size:27px;margin:32px 0 10px}.auth-card p{color:var(--muted);line-height:1.7}.auth-card form{display:grid;gap:14px;margin-top:22px}.auth-card label,.form-panel label,.modal label{display:grid;gap:7px;font-size:12px;color:#d9d3c8}.input,textarea.input{width:100%;background:#0c0d10;border:1px solid var(--line);color:var(--text);border-radius:12px;padding:12px 13px;outline:none}.input:focus{border-color:var(--gold)}textarea.input{min-height:100px;resize:vertical}.btn{border:0;border-radius:12px;padding:11px 15px;font-weight:750;cursor:pointer}.btn.primary{background:linear-gradient(135deg,var(--gold),#9f7b36);color:#151109}.btn.ghost{background:#17181d;color:#eee;border:1px solid var(--line)}.btn.danger{background:#2a1719;color:#f0b3b3;border:1px solid #603238}.btn.small{padding:8px 10px;font-size:12px}.full{width:100%}.note,.error{margin-top:14px;padding:11px 12px;border-radius:11px;font-size:12px;line-height:1.5}.note{background:#19160f;border:1px solid #44381f;color:#ccb98d}.error{background:#281516;border:1px solid #643536;color:#efadad}.app{min-height:100vh;display:grid;grid-template-columns:250px 1fr}.sidebar{height:100vh;position:sticky;top:0;border-right:1px solid var(--line);background:rgba(9,9,11,.96);padding:22px 17px;display:flex;flex-direction:column;z-index:30}.sidebar-brand{padding:0 8px 26px}.nav{display:grid;gap:7px}.nav button{display:flex;align-items:center;gap:11px;padding:12px 13px;background:transparent;color:#b9b5ad;border:1px solid transparent;border-radius:12px;text-align:left;cursor:pointer}.nav button:hover,.nav button.active{background:#171711;border-color:#3a301e;color:#fff}.nav button span{width:23px;color:var(--gold);text-align:center}.sidebar-foot{margin-top:auto;padding:10px 8px}.account{font-size:11px;color:#888;overflow:hidden;text-overflow:ellipsis;margin-bottom:10px}.main{min-width:0}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;border-bottom:1px solid var(--line);background:rgba(8,9,11,.76);backdrop-filter:blur(12px);position:sticky;top:0;z-index:20}.top-left{display:flex;align-items:center;gap:12px}.topbar h2{font-size:20px;margin:0}.topbar small{color:var(--muted)}.top-actions{display:flex;align-items:center;gap:10px}.sync{font-size:11px;border:1px solid var(--line);border-radius:999px;padding:7px 10px;color:#b8b8b8}.sync i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:6px;box-shadow:0 0 12px var(--ok)}.icon-btn{border:1px solid var(--line);background:#15161a;color:#ddd;border-radius:10px;width:38px;height:38px;cursor:pointer}.content{padding:26px;max-width:1500px;margin:auto}.view{display:none}.view.active{display:block}.section-head,.panel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}.section-head{margin-bottom:18px}.section-head h3{font-size:25px;margin:0}.section-head p{margin:5px 0 0;color:var(--muted)}.kpi-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.kpi{background:linear-gradient(180deg,#141519,#0f1013);border:1px solid var(--line);border-radius:var(--r);padding:19px}.kpi small{color:var(--muted)}.kpi strong{display:block;font-size:28px;margin-top:7px;letter-spacing:-.035em}.two-col{display:grid;grid-template-columns:1.3fr .7fr;gap:16px;margin-top:16px}.panel{background:linear-gradient(180deg,#121317,#0e0f12);border:1px solid var(--line);border-radius:var(--r);padding:18px;overflow:hidden}.panel h3{font-size:15px;margin:0 0 14px}.panel-head h3{margin:0}.therapist-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.therapist-card{background:#111216;border:1px solid var(--line);border-radius:18px;overflow:hidden}.therapist-photo{aspect-ratio:4/5;background:linear-gradient(145deg,#2a2419,#0c0d10);display:grid;place-items:center;color:var(--gold);font-size:40px}.therapist-photo img{width:100%;height:100%;object-fit:cover;display:block}.therapist-body{padding:15px}.therapist-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.therapist-card h4{margin:0;font-size:17px}.therapist-card p{margin:6px 0 14px;color:var(--muted);font-size:12px;line-height:1.5;min-height:36px}.actions{display:flex;gap:8px}.actions .btn{flex:1}.badge{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:5px 8px;font-size:10px}.badge.ok{color:#9ed9bf;border-color:#315646;background:#12231b}.badge.off{color:#a1a1a1}.badge.warn{color:#f0c57f;border-color:#594721;background:#261f10}.badge.danger{color:#efaaaa;border-color:#5c302f;background:#291616}.schedule-grid{display:grid;grid-template-columns:repeat(7,minmax(160px,1fr));gap:12px;overflow:auto}.day{background:#101115;border:1px solid var(--line);border-radius:16px;padding:14px;min-height:230px}.day h4{margin:0 0 3px;font-size:14px}.day>small{color:#6f6f74}.shift{margin-top:11px;border:1px solid #31323a;background:#191a1f;border-radius:11px;padding:10px;cursor:pointer}.shift strong{display:block;font-size:13px}.shift span{display:block;color:#949499;font-size:11px;margin-top:4px}.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:12px}.filters .input{width:auto;min-width:190px}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:780px}.table th{font-size:10px;letter-spacing:.08em;color:#76767a;text-align:left;padding:10px;border-bottom:1px solid var(--line)}.table td{font-size:12px;padding:12px 10px;border-bottom:1px solid #202126}.table tr:last-child td{border-bottom:0}.empty{padding:28px;text-align:center;border:1px dashed #333;border-radius:14px;color:#717176;font-size:12px}.list{display:grid;gap:8px}.list-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #24252a}.list-row:last-child{border-bottom:0}.list-row small{color:#888}.sales-row{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #24252a;font-size:13px}.sales-row:last-child{border-bottom:0}.form-panel{display:grid;gap:14px;max-width:720px}.form-panel .btn{justify-self:start}.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.72);display:grid;place-items:center;padding:18px;z-index:100}.modal{width:min(680px,100%);max-height:92vh;overflow:auto;background:#111217;border:1px solid #454038;border-radius:22px;padding:21px;box-shadow:var(--shadow)}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:15px}.modal-head h3{margin:0}.modal-close{background:transparent;border:0;color:#aaa;font-size:24px;cursor:pointer}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.span-2{grid-column:1/-1}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.photo-editor{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:center;padding:13px;background:#0c0d10;border:1px solid var(--line);border-radius:14px}.photo-preview{width:150px;height:185px;border-radius:13px;overflow:hidden;background:linear-gradient(145deg,#2a2419,#111);display:grid;place-items:center;color:var(--gold);font-size:36px}.photo-preview img{width:100%;height:100%;object-fit:cover}.photo-controls{display:grid;gap:8px}.photo-controls small{color:#777;line-height:1.5}.toast{position:fixed;right:20px;bottom:20px;z-index:200;background:#17191e;border:1px solid #3a3d44;border-radius:12px;padding:12px 15px;box-shadow:var(--shadow);font-size:12px}.toast.error-toast{border-color:#613536;color:#efb0b0}.mobile-only{display:none}@media(max-width:1050px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}.therapist-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:780px){.app{grid-template-columns:1fr}.sidebar{position:fixed;left:-270px;width:250px;transition:.2s}.sidebar.open{left:0}.mobile-only{display:inline-grid;place-items:center}.topbar{padding:0 14px}.content{padding:17px 13px}.therapist-grid{grid-template-columns:1fr 1fr}.section-head{align-items:flex-start}.section-head .btn{white-space:nowrap}.sync{display:none}}@media(max-width:560px){.kpi-grid{grid-template-columns:1fr 1fr}.kpi{padding:15px}.kpi strong{font-size:22px}.therapist-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.span-2{grid-column:auto}.photo-editor{grid-template-columns:1fr}.photo-preview{width:100%;height:280px}.section-head{display:grid}.filters .input{width:100%}.topbar h2{font-size:17px}}
+
+</style>
+</head>
+<body>
+  <div id="boot" class="boot"><div class="spinner"></div><p>REPOS ADMIN を読み込み中...</p></div>
+
+  <section id="setupScreen" class="center-screen hidden">
+    <div class="auth-card">
+      <div class="brand"><div class="brand-mark">R</div><div><strong>REPOS ADMIN</strong><small>Cloud Console</small></div></div>
+      <h1>初期設定が必要です</h1>
+      <p>Supabase の接続情報が未設定です。<code>config.js</code> に Project URL と Publishable Key を設定してください。</p>
+      <div class="note">Service role key は絶対に設定しないでください。</div>
+      <a class="btn primary full" href="./README_SETUP.html">設定手順を見る</a>
+    </div>
+  </section>
+
+  <section id="loginScreen" class="center-screen hidden">
+    <div class="auth-card">
+      <div class="brand"><div class="brand-mark">R</div><div><strong>REPOS ADMIN</strong><small>Cloud Console</small></div></div>
+      <h1>管理画面ログイン</h1>
+      <p>管理者として登録されたメールアドレスでログインしてください。</p>
+      <form id="loginForm">
+        <label>メールアドレス<input id="loginEmail" class="input" type="email" autocomplete="username" required></label>
+        <label>パスワード<input id="loginPassword" class="input" type="password" autocomplete="current-password" required></label>
+        <button class="btn primary full" type="submit">ログイン</button>
+      </form>
+      <div id="loginError" class="error hidden"></div>
+    </div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand sidebar-brand"><div class="brand-mark">R</div><div><strong>REPOS ADMIN</strong><small>Cloud Console</small></div></div>
+      <nav id="nav" class="nav">
+        <button data-view="dashboard" class="active"><span>⌂</span>ダッシュボード</button>
+        <button data-view="therapists"><span>♙</span>セラピスト</button>
+        <button data-view="schedule"><span>▦</span>出勤管理</button>
+        <button data-view="reservations"><span>◷</span>予約管理</button>
+        <button data-view="sales"><span>¥</span>売上</button>
+        <button data-view="settings"><span>⚙</span>設定</button>
+      </nav>
+      <div class="sidebar-foot">
+        <div id="accountEmail" class="account"></div>
+        <button id="logoutBtn" class="btn ghost full">ログアウト</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-left"><button id="menuBtn" class="icon-btn mobile-only">☰</button><div><h2 id="pageTitle">ダッシュボード</h2><small id="pageSubtitle">REPOSの運営状況</small></div></div>
+        <div class="top-actions"><span id="syncState" class="sync"><i></i>クラウド同期</span><button id="refreshBtn" class="icon-btn" title="更新">↻</button></div>
+      </header>
+
+      <div class="content">
+        <section id="view-dashboard" class="view active">
+          <div class="kpi-grid" id="dashboardKpis"></div>
+          <div class="two-col">
+            <div class="panel"><div class="panel-head"><h3>本日の予約</h3><button class="btn ghost small" data-action="new-reservation">予約を追加</button></div><div id="todayReservations"></div></div>
+            <div class="panel"><div class="panel-head"><h3>本日の出勤</h3><button class="btn ghost small" data-action="new-shift">出勤を追加</button></div><div id="todayShifts"></div></div>
+          </div>
+        </section>
+
+        <section id="view-therapists" class="view">
+          <div class="section-head"><div><h3>セラピスト管理</h3><p>プロフィール、公開状態、写真を管理します。</p></div><button class="btn primary" data-action="new-therapist">＋ セラピスト追加</button></div>
+          <div id="therapistGrid" class="therapist-grid"></div>
+        </section>
+
+        <section id="view-schedule" class="view">
+          <div class="section-head"><div><h3>出勤管理</h3><p>今日から7日間の出勤情報を管理します。</p></div><button class="btn primary" data-action="new-shift">＋ 出勤登録</button></div>
+          <div id="scheduleGrid" class="schedule-grid"></div>
+        </section>
+
+        <section id="view-reservations" class="view">
+          <div class="section-head"><div><h3>予約管理</h3><p>予約・施術完了・キャンセルを一元管理します。</p></div><button class="btn primary" data-action="new-reservation">＋ 予約登録</button></div>
+          <div class="filters"><input id="reservationSearch" class="input" placeholder="お客様名・電話番号で検索"><select id="reservationStatus" class="input"><option value="">すべての状態</option><option>予約確定</option><option>施術完了</option><option>キャンセル</option></select></div>
+          <div class="panel"><div id="reservationTable" class="table-wrap"></div></div>
+        </section>
+
+        <section id="view-sales" class="view">
+          <div class="section-head"><div><h3>売上</h3><p>「施術完了」の予約から自動集計します。</p></div></div>
+          <div id="salesKpis" class="kpi-grid"></div>
+          <div class="two-col"><div class="panel"><h3>セラピスト別売上</h3><div id="salesByTherapist"></div></div><div class="panel"><h3>コース別売上</h3><div id="salesByCourse"></div></div></div>
+        </section>
+
+        <section id="view-settings" class="view">
+          <div class="section-head"><div><h3>店舗設定</h3><p>公開サイト連携で使用する基本情報です。</p></div></div>
+          <div class="panel form-panel">
+            <label>店舗名<input id="settingStoreName" class="input"></label>
+            <label>営業時間<input id="settingHours" class="input" placeholder="12:00〜27:00"></label>
+            <label>待機拠点<input id="settingArea" class="input" placeholder="桜坂付近"></label>
+            <button id="saveSettingsBtn" class="btn primary">設定を保存</button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="modalRoot"></div>
+  <div id="toastRoot"></div>
+
+  <script>
+/* REPOS minimal Supabase client: no CDN dependency. */
+(function(){
+  function makeError(status, payload){
+    const msg = (payload && (payload.msg || payload.message || payload.error_description || payload.error)) || ('HTTP '+status);
+    const e = new Error(String(msg)); e.status=status; e.payload=payload; return e;
+  }
+  function qs(params){
+    const sp=new URLSearchParams();
+    Object.entries(params||{}).forEach(([k,v])=>{ if(v!==undefined&&v!==null) sp.set(k,String(v)); });
+    const t=sp.toString(); return t?'?'+t:'';
+  }
+  class MiniClient{
+    constructor(url,key,opts){
+      this.url=String(url||'').replace(/\/$/,''); this.key=key; this.auth=new MiniAuth(this); this.storage={from:(b)=>new MiniStorage(this,b)};
+    }
+    token(){ return this.auth.session?.access_token || null; }
+    headers(extra={}){ const t=this.token(); return Object.assign({'apikey':this.key,'Authorization':'Bearer '+(t||this.key)},extra); }
+    from(table){ return new Query(this,table); }
+    async rpc(fn,args={}){
+      try{
+        const r=await fetch(this.url+'/rest/v1/rpc/'+encodeURIComponent(fn),{method:'POST',headers:this.headers({'Content-Type':'application/json'}),body:JSON.stringify(args)});
+        const txt=await r.text(); let data=null; try{data=txt?JSON.parse(txt):null}catch{data=txt}
+        if(!r.ok) return {data:null,error:makeError(r.status,data)}; return {data,error:null};
+      }catch(e){return {data:null,error:e}}
+    }
+  }
+  class MiniAuth{
+    constructor(c){this.c=c;this.listeners=[];this.session=null;this.load();}
+    load(){try{const raw=localStorage.getItem('repos_supabase_session'); if(raw)this.session=JSON.parse(raw);}catch(_){}}
+    save(){try{ if(this.session)localStorage.setItem('repos_supabase_session',JSON.stringify(this.session)); else localStorage.removeItem('repos_supabase_session'); }catch(_){}}
+    async refreshIfNeeded(){
+      if(!this.session?.refresh_token) return;
+      const exp=Number(this.session.expires_at||0); if(exp>Date.now()/1000+60) return;
+      try{
+        const r=await fetch(this.c.url+'/auth/v1/token?grant_type=refresh_token',{method:'POST',headers:{'apikey':this.c.key,'Authorization':'Bearer '+this.c.key,'Content-Type':'application/json'},body:JSON.stringify({refresh_token:this.session.refresh_token})});
+        const d=await r.json(); if(r.ok){this.session={...d,expires_at:Math.floor(Date.now()/1000)+Number(d.expires_in||3600)};this.save();} else {this.session=null;this.save();}
+      }catch(_){ }
+    }
+    async getSession(){await this.refreshIfNeeded();return {data:{session:this.session},error:null};}
+    async signInWithPassword({email,password}){
+      try{
+        const r=await fetch(this.c.url+'/auth/v1/token?grant_type=password',{method:'POST',headers:{'apikey':this.c.key,'Authorization':'Bearer '+this.c.key,'Content-Type':'application/json'},body:JSON.stringify({email,password})});
+        const txt=await r.text(); let d={}; try{d=txt?JSON.parse(txt):{}}catch{d={message:txt}}
+        if(!r.ok) return {data:{user:null,session:null},error:makeError(r.status,d)};
+        this.session={...d,expires_at:Math.floor(Date.now()/1000)+Number(d.expires_in||3600)}; this.save(); this.emit('SIGNED_IN',this.session);
+        return {data:{user:d.user,session:this.session},error:null};
+      }catch(e){return {data:{user:null,session:null},error:e}}
+    }
+    async signOut(){this.session=null;this.save();this.emit('SIGNED_OUT',null);return {error:null};}
+    onAuthStateChange(cb){this.listeners.push(cb);return {data:{subscription:{unsubscribe:()=>{this.listeners=this.listeners.filter(x=>x!==cb)}}}};}
+    emit(ev,s){this.listeners.forEach(fn=>{try{fn(ev,s)}catch(_){}})}
+  }
+  class Query{
+    constructor(c,table){this.c=c;this.table=table;this.method='GET';this.body=null;this.filters=[];this.params={};this.prefer=[];this.wantSingle=false;this.maybe=false;}
+    select(cols='*'){this.params.select=cols;if(this.method!=='GET')this.prefer.push('return=representation');return this;}
+    order(col,{ascending=true}={}){this.params.order=col+'.'+(ascending?'asc':'desc');return this;}
+    limit(n){this.params.limit=n;return this;}
+    eq(col,val){this.filters.push([col,'eq.'+String(val)]);return this;}
+    gte(col,val){this.filters.push([col,'gte.'+String(val)]);return this;}
+    lte(col,val){this.filters.push([col,'lte.'+String(val)]);return this;}
+    gt(col,val){this.filters.push([col,'gt.'+String(val)]);return this;}
+    lt(col,val){this.filters.push([col,'lt.'+String(val)]);return this;}
+    neq(col,val){this.filters.push([col,'neq.'+String(val)]);return this;}
+    insert(payload){this.method='POST';this.body=payload;return this;}
+    update(payload){this.method='PATCH';this.body=payload;return this;}
+    delete(){this.method='DELETE';return this;}
+    upsert(payload){this.method='POST';this.body=payload;this.prefer.push('resolution=merge-duplicates');return this;}
+    single(){this.wantSingle=true;return this.exec();}
+    maybeSingle(){this.wantSingle=true;this.maybe=true;return this.exec();}
+    then(res,rej){return this.exec().then(res,rej);}
+    async exec(){
+      try{
+        const p={...this.params}; this.filters.forEach(([k,v])=>p[k]=v);
+        const headers=this.c.headers({}); if(this.body!==null)headers['Content-Type']='application/json';
+        if(this.prefer.length)headers['Prefer']=[...new Set(this.prefer)].join(',');
+        const opt={method:this.method,headers}; if(this.body!==null)opt.body=JSON.stringify(this.body);
+        const r=await fetch(this.c.url+'/rest/v1/'+encodeURIComponent(this.table)+qs(p),opt);
+        const txt=await r.text(); let data=null; try{data=txt?JSON.parse(txt):null}catch{data=txt}
+        if(!r.ok)return {data:null,error:makeError(r.status,data)};
+        if(this.wantSingle){ if(Array.isArray(data)) data=data[0]??null; if(data==null&& !this.maybe) return {data:null,error:new Error('No row returned')}; }
+        return {data,error:null};
+      }catch(e){return {data:null,error:e}}
+    }
+  }
+  class MiniStorage{
+    constructor(c,b){this.c=c;this.b=b;}
+    getPublicUrl(path){return {data:{publicUrl:this.c.url+'/storage/v1/object/public/'+encodeURIComponent(this.b)+'/'+String(path).split('/').map(encodeURIComponent).join('/')}};}
+    async upload(path,blob,{contentType='application/octet-stream',upsert=false}={}){
+      try{const u=this.c.url+'/storage/v1/object/'+encodeURIComponent(this.b)+'/'+String(path).split('/').map(encodeURIComponent).join('/');const r=await fetch(u,{method:'POST',headers:this.c.headers({'Content-Type':contentType,'x-upsert':upsert?'true':'false'}),body:blob});const txt=await r.text();let d=null;try{d=txt?JSON.parse(txt):null}catch{d=txt}if(!r.ok)return {data:null,error:makeError(r.status,d)};return {data:d,error:null};}catch(e){return {data:null,error:e}}
+    }
+    async remove(paths){
+      try{const r=await fetch(this.c.url+'/storage/v1/object/'+encodeURIComponent(this.b),{method:'DELETE',headers:this.c.headers({'Content-Type':'application/json'}),body:JSON.stringify({prefixes:paths})});const txt=await r.text();let d=null;try{d=txt?JSON.parse(txt):null}catch{d=txt}if(!r.ok)return {data:null,error:makeError(r.status,d)};return {data:d,error:null};}catch(e){return {data:null,error:e}}
+    }
+  }
+  window.supabase={createClient:(url,key,opts)=>new MiniClient(url,key,opts)};
+})();
+</script>
+  <script>
+window.REPOS_CONFIG = {
+  SUPABASE_URL: "https://hmzrkolanureplanrhxj.supabase.co",
+  SUPABASE_PUBLISHABLE_KEY: "sb_publishable_ZWdtq8A0I0LIt2jmkmRNJw_RGfRrSfL",
+  PHOTO_BUCKET: "therapist-photos",
+  ADMIN_EMAIL_HINT: "mymymaeda@gmail.com"
+};
+
+</script>
+  <script>
+(() => {
+  'use strict';
+
+  const cfg = window.REPOS_CONFIG || {};
+  const configured = cfg.SUPABASE_URL && cfg.SUPABASE_PUBLISHABLE_KEY && !cfg.SUPABASE_URL.startsWith('YOUR_') && !cfg.SUPABASE_PUBLISHABLE_KEY.startsWith('YOUR_');
+  let sb = null;
+  let currentUser = null;
+  let photoDraft = null;
+  let removePhotoRequested = false;
+  const state = { therapists: [], shifts: [], reservations: [], settings: null };
+
+  const $ = (id) => document.getElementById(id);
+  const qs = (sel, root=document) => root.querySelector(sel);
+  const qsa = (sel, root=document) => [...root.querySelectorAll(sel)];
+  const yen = (n=0) => new Intl.NumberFormat('ja-JP',{style:'currency',currency:'JPY',maximumFractionDigits:0}).format(Number(n)||0);
+  const todayISO = () => { const d = new Date(); const off=d.getTimezoneOffset(); return new Date(d.getTime()-off*60000).toISOString().slice(0,10); };
+  const datePlus = (n) => { const d=new Date(todayISO()+'T00:00:00'); d.setDate(d.getDate()+n); const off=d.getTimezoneOffset(); return new Date(d.getTime()-off*60000).toISOString().slice(0,10); };
+  const jpDate = (s) => { const d=new Date(s+'T00:00:00'); return new Intl.DateTimeFormat('ja-JP',{month:'numeric',day:'numeric',weekday:'short'}).format(d); };
+  const escapeHtml = (s='') => String(s).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const byId = (arr,id) => arr.find(x=>x.id===id);
+  const therapistName = (id) => byId(state.therapists,id)?.name || '未設定';
+
+  function showOnly(id){ ['boot','setupScreen','loginScreen','app'].forEach(x=>$(x).classList.toggle('hidden',x!==id)); }
+  function toast(message, type='ok'){ const el=document.createElement('div'); el.className='toast'+(type==='error'?' error-toast':''); el.textContent=message; $('toastRoot').appendChild(el); setTimeout(()=>el.remove(),3200); }
+  function setSync(label='クラウド同期', busy=false){ $('syncState').innerHTML=`<i style="${busy?'background:#e4b875;box-shadow:0 0 12px #e4b875':''}"></i>${escapeHtml(label)}`; }
+  function photoUrl(path){ if(!path) return ''; return sb.storage.from(cfg.PHOTO_BUCKET || 'therapist-photos').getPublicUrl(path).data.publicUrl; }
+
+  async function init(){
+    if(!configured){ showOnly('setupScreen'); return; }
+    sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_PUBLISHABLE_KEY, { auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true} });
+    console.log('REPOS ADMIN: self-contained client initialized');
+    if(cfg.ADMIN_EMAIL_HINT && $('loginEmail') && !$('loginEmail').value) $('loginEmail').value = cfg.ADMIN_EMAIL_HINT;
+    const {data:{session}} = await sb.auth.getSession();
+    if(session?.user){ await enterIfAdmin(session.user); } else { showOnly('loginScreen'); }
+    sb.auth.onAuthStateChange(async (event,session)=>{
+      if(event==='SIGNED_OUT'){ currentUser=null; showOnly('loginScreen'); }
+    });
+  }
+
+  async function enterIfAdmin(user){
+    const {data,isError,error} = await adminCheck();
+    if(error || data !== true){
+      await sb.auth.signOut(); showOnly('loginScreen'); $('loginError').textContent='このアカウントには管理者権限がありません。'; $('loginError').classList.remove('hidden'); return;
+    }
+    currentUser=user; $('accountEmail').textContent=user.email || ''; showOnly('app'); await loadAll();
+  }
+  async function adminCheck(){ const r = await sb.rpc('is_admin'); return {data:r.data,isError:!!r.error,error:r.error}; }
+
+  $('loginForm').addEventListener('submit', async (e)=>{
+    e.preventDefault(); $('loginError').classList.add('hidden');
+    const email=$('loginEmail').value.trim(), password=$('loginPassword').value;
+    const btn=qs('button[type="submit"]',$('loginForm')); btn.disabled=true; btn.textContent='ログイン中...';
+    const {data,error}=await sb.auth.signInWithPassword({email,password});
+    btn.disabled=false; btn.textContent='ログイン';
+    if(error){ $('loginError').textContent='ログインできませんでした：'+(error.message||'メールアドレスとパスワードを確認してください。'); $('loginError').classList.remove('hidden'); return; }
+    await enterIfAdmin(data.user);
+  });
+  $('logoutBtn').addEventListener('click',()=>sb.auth.signOut());
+  $('refreshBtn').addEventListener('click',loadAll);
+  $('menuBtn').addEventListener('click',()=>$('sidebar').classList.toggle('open'));
+
+  qsa('#nav button').forEach(btn=>btn.addEventListener('click',()=>switchView(btn.dataset.view)));
+  function switchView(view){ qsa('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view)); qsa('.view').forEach(v=>v.classList.toggle('active',v.id===`view-${view}`)); const titles={dashboard:['ダッシュボード','REPOSの運営状況'],therapists:['セラピスト','プロフィール・写真管理'],schedule:['出勤管理','7日間のスケジュール'],reservations:['予約管理','予約・施術ステータス'],sales:['売上','施術完了データから自動集計'],settings:['設定','店舗基本情報']}; $('pageTitle').textContent=titles[view][0]; $('pageSubtitle').textContent=titles[view][1]; $('sidebar').classList.remove('open'); }
+
+  document.addEventListener('click',(e)=>{
+    const a=e.target.closest('[data-action]'); if(!a) return;
+    const action=a.dataset.action;
+    if(action==='new-therapist') openTherapistModal();
+    if(action==='edit-therapist') openTherapistModal(a.dataset.id);
+    if(action==='new-shift') openShiftModal();
+    if(action==='edit-shift') openShiftModal(a.dataset.id);
+    if(action==='new-reservation') openReservationModal();
+    if(action==='edit-reservation') openReservationModal(a.dataset.id);
+  });
+  $('reservationSearch').addEventListener('input',renderReservations);
+  $('reservationStatus').addEventListener('change',renderReservations);
+  $('saveSettingsBtn').addEventListener('click',saveSettings);
+
+  async function loadAll(){
+    setSync('同期中...',true);
+    const [t,s,r,st] = await Promise.all([
+      sb.from('therapists').select('*').order('created_at',{ascending:true}),
+      sb.from('shifts').select('*').gte('shift_date',datePlus(-1)).lte('shift_date',datePlus(30)).order('shift_date').order('start_label'),
+      sb.from('reservations').select('*').order('reservation_date',{ascending:false}).order('start_label',{ascending:false}),
+      sb.from('store_settings').select('*').eq('id',1).maybeSingle()
+    ]);
+    const err=t.error||s.error||r.error||st.error;
+    if(err){ console.error(err); toast('クラウドデータを取得できませんでした。Supabase設定を確認してください。','error'); setSync('同期エラー',true); return; }
+    state.therapists=t.data||[]; state.shifts=s.data||[]; state.reservations=r.data||[]; state.settings=st.data||null;
+    renderAll(); setSync('クラウド同期');
+  }
+
+  function renderAll(){ renderDashboard(); renderTherapists(); renderSchedule(); renderReservations(); renderSales(); renderSettings(); }
+  function renderDashboard(){
+    const today=todayISO(); const todaysR=state.reservations.filter(r=>r.reservation_date===today); const todaysS=state.shifts.filter(s=>s.shift_date===today); const month=today.slice(0,7); const monthDone=state.reservations.filter(r=>r.status==='施術完了'&&r.reservation_date.startsWith(month)); const monthSales=monthDone.reduce((a,b)=>a+Number(b.amount||0),0);
+    const kpis=[['本日予約',`${todaysR.filter(r=>r.status!=='キャンセル').length}件`],['本日出勤',`${new Set(todaysS.map(s=>s.therapist_id)).size}名`],['今月売上',yen(monthSales)],['公開中',`${state.therapists.filter(t=>t.active).length}名`]];
+    $('dashboardKpis').innerHTML=kpis.map(([l,v])=>`<div class="kpi"><small>${l}</small><strong>${v}</strong></div>`).join('');
+    $('todayReservations').innerHTML=todaysR.length?`<div class="list">${todaysR.sort((a,b)=>a.start_label.localeCompare(b.start_label)).map(r=>`<div class="list-row"><div><strong>${escapeHtml(r.start_label)} ${escapeHtml(r.customer_name)}</strong><br><small>${escapeHtml(therapistName(r.therapist_id))} / ${escapeHtml(r.course)}</small></div>${statusBadge(r.status)}</div>`).join('')}</div>`:'<div class="empty">本日の予約はありません</div>';
+    $('todayShifts').innerHTML=todaysS.length?`<div class="list">${todaysS.map(s=>`<div class="list-row"><div><strong>${escapeHtml(therapistName(s.therapist_id))}</strong><br><small>${escapeHtml(s.start_label)}〜${escapeHtml(s.end_label)}</small></div><span class="badge ok">出勤</span></div>`).join('')}</div>`:'<div class="empty">本日の出勤登録はありません</div>';
+  }
+  function statusBadge(status){ const cls=status==='施術完了'?'ok':status==='キャンセル'?'danger':'warn'; return `<span class="badge ${cls}">${escapeHtml(status)}</span>`; }
+
+  function renderTherapists(){
+    $('therapistGrid').innerHTML=state.therapists.length?state.therapists.map(t=>`<article class="therapist-card"><div class="therapist-photo">${t.photo_path?`<img src="${photoUrl(t.photo_path)}" alt="${escapeHtml(t.name)}">`:escapeHtml((t.name||'R').slice(0,1))}</div><div class="therapist-body"><div class="therapist-top"><div><h4>${escapeHtml(t.name)} <small>${Number(t.age)||''}${t.age?'歳':''}</small></h4></div><span class="badge ${t.active?'ok':'off'}">${t.active?'公開中':'非公開'}</span></div><p>${escapeHtml(t.memo||'プロフィール未入力')}</p><div class="actions"><button class="btn ghost small" data-action="edit-therapist" data-id="${t.id}">編集</button></div></div></article>`).join(''):'<div class="empty">セラピストがまだ登録されていません</div>';
+  }
+
+  function renderSchedule(){
+    let html=''; for(let i=0;i<7;i++){ const date=datePlus(i), items=state.shifts.filter(s=>s.shift_date===date); html+=`<div class="day"><h4>${jpDate(date)}</h4><small>${i===0?'TODAY':'SCHEDULE'}</small>${items.length?items.map(s=>`<div class="shift" data-action="edit-shift" data-id="${s.id}"><strong>${escapeHtml(therapistName(s.therapist_id))}</strong><span>${escapeHtml(s.start_label)}〜${escapeHtml(s.end_label)}</span></div>`).join(''):'<div class="empty" style="margin-top:14px;padding:18px 8px">出勤なし</div>'}</div>`; }
+    $('scheduleGrid').innerHTML=html;
+  }
+
+  function renderReservations(){
+    const q=$('reservationSearch').value.trim().toLowerCase(), status=$('reservationStatus').value; const list=state.reservations.filter(r=>(!q||`${r.customer_name||''} ${r.phone||''}`.toLowerCase().includes(q))&&(!status||r.status===status));
+    $('reservationTable').innerHTML=list.length?`<table class="table"><thead><tr><th>日付</th><th>時間</th><th>お客様</th><th>担当</th><th>コース</th><th>金額</th><th>状態</th><th></th></tr></thead><tbody>${list.map(r=>`<tr><td>${escapeHtml(r.reservation_date)}</td><td>${escapeHtml(r.start_label)}</td><td>${escapeHtml(r.customer_name)}<br><small>${escapeHtml(r.phone||'')}</small></td><td>${escapeHtml(therapistName(r.therapist_id))}</td><td>${escapeHtml(r.course)}</td><td>${yen(r.amount)}</td><td>${statusBadge(r.status)}</td><td><button class="btn ghost small" data-action="edit-reservation" data-id="${r.id}">編集</button></td></tr>`).join('')}</tbody></table>`:'<div class="empty">該当する予約はありません</div>';
+  }
+
+  function renderSales(){
+    const done=state.reservations.filter(r=>r.status==='施術完了'), total=done.reduce((a,b)=>a+Number(b.amount||0),0), month=todayISO().slice(0,7), m=done.filter(r=>r.reservation_date.startsWith(month)), mTotal=m.reduce((a,b)=>a+Number(b.amount||0),0), avg=done.length?Math.round(total/done.length):0;
+    $('salesKpis').innerHTML=[['累計売上',yen(total)],['今月売上',yen(mTotal)],['施術完了',`${done.length}件`],['平均客単価',yen(avg)]].map(([l,v])=>`<div class="kpi"><small>${l}</small><strong>${v}</strong></div>`).join('');
+    const byT={}; done.forEach(r=>byT[r.therapist_id]=(byT[r.therapist_id]||0)+Number(r.amount||0)); $('salesByTherapist').innerHTML=Object.entries(byT).sort((a,b)=>b[1]-a[1]).map(([id,v])=>`<div class="sales-row"><span>${escapeHtml(therapistName(id))}</span><strong>${yen(v)}</strong></div>`).join('')||'<div class="empty">売上データなし</div>';
+    const byC={}; done.forEach(r=>byC[r.course]=(byC[r.course]||0)+Number(r.amount||0)); $('salesByCourse').innerHTML=Object.entries(byC).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`<div class="sales-row"><span>${escapeHtml(c)}</span><strong>${yen(v)}</strong></div>`).join('')||'<div class="empty">売上データなし</div>';
+  }
+
+  function renderSettings(){ const s=state.settings||{}; $('settingStoreName').value=s.store_name||'REPOS 出張型Men’s Relaxation'; $('settingHours').value=s.business_hours||'12:00〜27:00'; $('settingArea').value=s.base_area||'桜坂付近'; }
+  async function saveSettings(){ setSync('保存中...',true); const payload={id:1,store_name:$('settingStoreName').value.trim(),business_hours:$('settingHours').value.trim(),base_area:$('settingArea').value.trim()}; const {error}=await sb.from('store_settings').upsert(payload); if(error){toast('設定を保存できませんでした','error');console.error(error)}else{toast('設定を保存しました');await loadAll();} }
+
+  function modal(html){ $('modalRoot').innerHTML=`<div class="modal-backdrop"><div class="modal">${html}</div></div>`; qs('.modal-backdrop').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()}); qsa('[data-close-modal]').forEach(x=>x.addEventListener('click',closeModal)); }
+  function closeModal(){ $('modalRoot').innerHTML=''; photoDraft=null; removePhotoRequested=false; }
+
+  function openTherapistModal(id=null){
+    const t=id?byId(state.therapists,id):{name:'',age:'',memo:'',active:true,photo_path:null}; photoDraft=null; removePhotoRequested=false;
+    modal(`<div class="modal-head"><h3>${id?'セラピスト編集':'セラピスト追加'}</h3><button class="modal-close" data-close-modal>×</button></div><div class="form-grid"><div class="photo-editor span-2"><div id="photoPreview" class="photo-preview">${t.photo_path?`<img src="${photoUrl(t.photo_path)}">`:escapeHtml((t.name||'R').slice(0,1))}</div><div class="photo-controls"><input id="photoInput" type="file" accept="image/jpeg,image/png,image/webp" class="hidden"><button id="photoSelectBtn" class="btn ghost" type="button">写真を選択・差し替え</button><button id="photoRemoveBtn" class="btn ghost" type="button">写真を削除</button><small>JPG / PNG / WebP。アップロード時に自動圧縮します。</small></div></div><label>名前<input id="tName" class="input" value="${escapeHtml(t.name)}"></label><label>年齢<input id="tAge" type="number" min="18" max="99" class="input" value="${escapeHtml(t.age||'')}"></label><label class="span-2">プロフィール<textarea id="tMemo" class="input">${escapeHtml(t.memo||'')}</textarea></label><label>公開状態<select id="tActive" class="input"><option value="1" ${t.active?'selected':''}>公開</option><option value="0" ${!t.active?'selected':''}>非公開</option></select></label></div><div class="modal-actions">${id?`<button id="deleteTherapistBtn" class="btn danger">削除</button>`:''}<button class="btn ghost" data-close-modal>キャンセル</button><button id="saveTherapistBtn" class="btn primary">保存</button></div>`);
+    $('photoSelectBtn').onclick=()=>$('photoInput').click(); $('photoInput').onchange=handlePhotoSelect; $('photoRemoveBtn').onclick=()=>{photoDraft=null;removePhotoRequested=true;$('photoPreview').textContent=($('tName').value||'R').slice(0,1)}; $('tName').oninput=()=>{if(!photoDraft&&!t.photo_path&&!removePhotoRequested)$('photoPreview').textContent=($('tName').value||'R').slice(0,1)}; $('saveTherapistBtn').onclick=()=>saveTherapist(id); if(id)$('deleteTherapistBtn').onclick=()=>deleteTherapist(id);
+  }
+
+  async function handlePhotoSelect(e){ const file=e.target.files?.[0]; if(!file)return; if(file.size>12*1024*1024){toast('画像は12MB以下にしてください','error');return;} photoDraft=file; removePhotoRequested=false; const url=URL.createObjectURL(file); $('photoPreview').innerHTML=`<img src="${url}">`; }
+  async function resizeImage(file){ return new Promise((resolve,reject)=>{ const img=new Image(),url=URL.createObjectURL(file); img.onload=()=>{ const maxW=1200,maxH=1500,scale=Math.min(1,maxW/img.width,maxH/img.height),w=Math.round(img.width*scale),h=Math.round(img.height*scale),canvas=document.createElement('canvas'); canvas.width=w;canvas.height=h;canvas.getContext('2d').drawImage(img,0,0,w,h);canvas.toBlob(blob=>{URL.revokeObjectURL(url);blob?resolve(blob):reject(new Error('画像変換に失敗'))},'image/jpeg',.84);}; img.onerror=reject; img.src=url; }); }
+  async function uploadTherapistPhoto(id,file){ const blob=await resizeImage(file); const path=`${id}/${Date.now()}.jpg`; const {error}=await sb.storage.from(cfg.PHOTO_BUCKET||'therapist-photos').upload(path,blob,{contentType:'image/jpeg',upsert:false}); if(error)throw error; return path; }
+
+  async function saveTherapist(id){
+    const name=$('tName').value.trim(); if(!name){toast('名前を入力してください','error');return;} setSync('保存中...',true);
+    try{
+      let therapistId=id, oldPath=id?byId(state.therapists,id)?.photo_path:null;
+      const base={name,age:$('tAge').value?Number($('tAge').value):null,memo:$('tMemo').value.trim(),active:$('tActive').value==='1'};
+      if(!therapistId){ const {data,error}=await sb.from('therapists').insert(base).select().single(); if(error)throw error; therapistId=data.id; oldPath=null; }
+      let newPath=oldPath;
+      if(photoDraft){ newPath=await uploadTherapistPhoto(therapistId,photoDraft); }
+      if(removePhotoRequested) newPath=null;
+      const {error:updateError}=await sb.from('therapists').update({...base,photo_path:newPath}).eq('id',therapistId); if(updateError)throw updateError;
+      if(oldPath && oldPath!==newPath){ await sb.storage.from(cfg.PHOTO_BUCKET||'therapist-photos').remove([oldPath]); }
+      closeModal(); toast('セラピスト情報を保存しました'); await loadAll();
+    }catch(err){console.error(err);toast('保存できませんでした','error');setSync('同期エラー',true);}
+  }
+  async function deleteTherapist(id){ if(!confirm('このセラピストを削除しますか？関連する出勤データも削除されます。'))return; const t=byId(state.therapists,id); const {error}=await sb.from('therapists').delete().eq('id',id); if(error){toast('削除できませんでした。予約データが残っている場合は先に予約を整理してください。','error');return;} if(t?.photo_path) await sb.storage.from(cfg.PHOTO_BUCKET||'therapist-photos').remove([t.photo_path]); closeModal();toast('削除しました');await loadAll(); }
+
+  function openShiftModal(id=null){ const s=id?byId(state.shifts,id):{shift_date:todayISO(),therapist_id:state.therapists[0]?.id||'',start_label:'18:00',end_label:'26:00'}; modal(`<div class="modal-head"><h3>${id?'出勤編集':'出勤登録'}</h3><button class="modal-close" data-close-modal>×</button></div><div class="form-grid"><label>日付<input id="sDate" type="date" class="input" value="${escapeHtml(s.shift_date)}"></label><label>セラピスト<select id="sTherapist" class="input">${state.therapists.map(t=>`<option value="${t.id}" ${t.id===s.therapist_id?'selected':''}>${escapeHtml(t.name)}</option>`).join('')}</select></label><label>開始<input id="sStart" class="input" value="${escapeHtml(s.start_label)}"></label><label>終了<input id="sEnd" class="input" value="${escapeHtml(s.end_label)}"></label></div><div class="modal-actions">${id?`<button id="deleteShiftBtn" class="btn danger">削除</button>`:''}<button class="btn ghost" data-close-modal>キャンセル</button><button id="saveShiftBtn" class="btn primary">保存</button></div>`); $('saveShiftBtn').onclick=()=>saveShift(id); if(id)$('deleteShiftBtn').onclick=()=>deleteShift(id); }
+  async function saveShift(id){ const payload={shift_date:$('sDate').value,therapist_id:$('sTherapist').value,start_label:$('sStart').value.trim(),end_label:$('sEnd').value.trim()}; const q=id?sb.from('shifts').update(payload).eq('id',id):sb.from('shifts').insert(payload); const {error}=await q; if(error){console.error(error);toast('出勤を保存できませんでした','error');return;} closeModal();toast('出勤を保存しました');await loadAll(); }
+  async function deleteShift(id){ if(!confirm('この出勤予定を削除しますか？'))return; const {error}=await sb.from('shifts').delete().eq('id',id); if(error){toast('削除できませんでした','error');return;} closeModal();toast('削除しました');await loadAll(); }
+
+  function openReservationModal(id=null){ const r=id?byId(state.reservations,id):{reservation_date:todayISO(),start_label:'18:00',customer_name:'',phone:'',therapist_id:state.therapists[0]?.id||'',course:'90分',amount:17000,status:'予約確定'}; modal(`<div class="modal-head"><h3>${id?'予約編集':'予約登録'}</h3><button class="modal-close" data-close-modal>×</button></div><div class="form-grid"><label>日付<input id="rDate" type="date" class="input" value="${escapeHtml(r.reservation_date)}"></label><label>開始時刻<input id="rTime" class="input" value="${escapeHtml(r.start_label)}"></label><label>お客様名<input id="rCustomer" class="input" value="${escapeHtml(r.customer_name)}"></label><label>電話番号<input id="rPhone" class="input" value="${escapeHtml(r.phone||'')}"></label><label>担当<select id="rTherapist" class="input">${state.therapists.map(t=>`<option value="${t.id}" ${t.id===r.therapist_id?'selected':''}>${escapeHtml(t.name)}</option>`).join('')}</select></label><label>コース<select id="rCourse" class="input"><option data-price="12000" ${r.course==='70分'?'selected':''}>70分</option><option data-price="17000" ${r.course==='90分'?'selected':''}>90分</option><option data-price="22000" ${r.course==='120分'?'selected':''}>120分</option></select></label><label>金額<input id="rAmount" type="number" class="input" value="${Number(r.amount)||0}"></label><label>状態<select id="rStatus" class="input"><option ${r.status==='予約確定'?'selected':''}>予約確定</option><option ${r.status==='施術完了'?'selected':''}>施術完了</option><option ${r.status==='キャンセル'?'selected':''}>キャンセル</option></select></label></div><div class="modal-actions">${id?`<button id="deleteReservationBtn" class="btn danger">削除</button>`:''}<button class="btn ghost" data-close-modal>キャンセル</button><button id="saveReservationBtn" class="btn primary">保存</button></div>`); $('rCourse').onchange=()=>{$('rAmount').value=$('rCourse').selectedOptions[0].dataset.price}; $('saveReservationBtn').onclick=()=>saveReservation(id); if(id)$('deleteReservationBtn').onclick=()=>deleteReservation(id); }
+  async function saveReservation(id){ const customer=$('rCustomer').value.trim(); if(!customer){toast('お客様名を入力してください','error');return;} const payload={reservation_date:$('rDate').value,start_label:$('rTime').value.trim(),customer_name:customer,phone:$('rPhone').value.trim(),therapist_id:$('rTherapist').value,course:$('rCourse').value,amount:Number($('rAmount').value||0),status:$('rStatus').value}; const q=id?sb.from('reservations').update(payload).eq('id',id):sb.from('reservations').insert(payload); const {error}=await q; if(error){console.error(error);toast('予約を保存できませんでした','error');return;} closeModal();toast('予約を保存しました');await loadAll(); }
+  async function deleteReservation(id){ if(!confirm('この予約を削除しますか？'))return; const {error}=await sb.from('reservations').delete().eq('id',id); if(error){toast('予約を削除できませんでした','error');return;} closeModal();toast('予約を削除しました');await loadAll(); }
+
+  init().catch(err=>{console.error(err);showOnly('loginScreen');$('loginError').textContent='初期化に失敗しました。設定を確認してください。';$('loginError').classList.remove('hidden');});
+})();
+
+</script>
+</body>
+</html>
