@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090909">
+<title>REPOS | Therapist & Schedule</title>
+<style>
+:root{--bg:#090909;--panel:#111;--panel2:#171717;--text:#f6f2e8;--muted:#aaa394;--gold:#c7a55b;--line:#29251e;--danger:#d97272;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 500px at 80% -10%,rgba(199,165,91,.13),transparent 60%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.65}
+a{color:inherit}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.hero{padding:64px 0 28px}.eyebrow{color:var(--gold);font-size:12px;letter-spacing:.25em;text-transform:uppercase}.brand{font-family:Georgia,"Times New Roman",serif;font-size:clamp(46px,9vw,86px);letter-spacing:.08em;margin:6px 0 0}.tag{margin:4px 0 0;color:var(--muted);font-size:14px}.meta{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap}.pill{border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:999px;padding:7px 12px;color:#d9d2c4;font-size:12px}.sync{display:flex;align-items:center;gap:7px}.dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 14px rgba(199,165,91,.7)}
+section{padding:36px 0}.head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}.head h2{margin:0;font-family:Georgia,"Times New Roman",serif;font-weight:500;font-size:clamp(28px,4vw,42px)}.head p{margin:0;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:linear-gradient(180deg,#171717,#101010);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.photo{aspect-ratio:4/5;background:#151515;display:grid;place-items:center;color:var(--gold);font-family:Georgia,serif;font-size:58px}.photo img{width:100%;height:100%;object-fit:cover;display:block}.body{padding:16px}.name{display:flex;align-items:baseline;gap:8px}.name strong{font-family:Georgia,"Times New Roman",serif;font-size:25px;font-weight:500}.age{color:var(--muted);font-size:12px}.memo{margin:10px 0 0;color:#c9c2b5;font-size:13px;white-space:pre-line}.schedule{display:grid;gap:10px}.day{border:1px solid var(--line);background:#111;border-radius:16px;overflow:hidden}.dayhead{display:flex;align-items:center;justify-content:space-between;padding:13px 15px;border-bottom:1px solid var(--line)}.date{font-weight:700}.dow{color:var(--gold);font-size:12px}.rows{padding:4px 14px}.row{display:grid;grid-template-columns:1fr auto;gap:16px;padding:12px 0;border-bottom:1px solid #211e19}.row:last-child{border-bottom:0}.who{font-weight:600}.time{font-variant-numeric:tabular-nums;color:#d8c89f}.empty{padding:16px;color:var(--muted);font-size:13px}.error{border:1px solid rgba(217,114,114,.35);background:rgba(217,114,114,.06);color:#f0b3b3;border-radius:14px;padding:14px}.footer{padding:38px 0 54px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.footer strong{color:var(--gold)}.skeleton{position:relative;overflow:hidden;background:#151515}.skeleton:after{content:"";position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);animation:shimmer 1.3s infinite}@keyframes shimmer{100%{transform:translateX(100%)}}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:520px){.wrap{width:min(100% - 22px,1120px)}.hero{padding-top:42px}.grid{grid-template-columns:1fr 1fr;gap:9px}.card{border-radius:14px}.body{padding:12px}.name strong{font-size:21px}.memo{font-size:12px}.schedule{gap:8px}.row{padding:10px 0}.head{align-items:start;flex-direction:column;gap:4px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Men's Relaxation / Fukuoka</div>
+    <h1 class="brand">REPOS</h1>
+    <p class="tag">街を抜けて、ほどける場所へ。</p>
+    <div class="meta">
+      <span class="pill" id="storeHours">営業時間を読込中</span>
+      <span class="pill" id="storeArea">エリアを読込中</span>
+      <span class="pill sync"><span class="dot"></span><span id="syncText">自動更新中</span></span>
+    </div>
+  </header>
+
+  <main>
+    <section id="therapists">
+      <div class="head"><h2>Therapists</h2><p>在籍セラピスト</p></div>
+      <div id="therapistGrid" class="grid">
+        <article class="card"><div class="photo skeleton"></div><div class="body"><div class="skeleton" style="height:24px;border-radius:8px"></div></div></article>
+        <article class="card"><div class="photo skeleton"></div><div class="body"><div class="skeleton" style="height:24px;border-radius:8px"></div></div></article>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="head"><h2>Schedule</h2><p>本日から7日間</p></div>
+      <div id="scheduleList" class="schedule"><div class="day"><div class="empty">出勤情報を読込中です…</div></div></div>
+    </section>
+    <div id="errorBox"></div>
+  </main>
+
+  <footer class="footer"><strong id="storeName">REPOS</strong><br>表示内容は管理画面の登録内容から自動反映されます。</footer>
+</div>
+<script>
+(() => {
+  'use strict';
+  const SUPABASE_URL = 'https://hmzrkolanureplanrhxj.supabase.co';
+  const PUBLISHABLE_KEY = 'sb_publishable_ZWdtq8A0I0LIt2jmkmRNJw_RGfRrSfL';
+  const PHOTO_BUCKET = 'therapist-photos';
+  const API = SUPABASE_URL + '/rest/v1';
+  const headers = { apikey: PUBLISHABLE_KEY, Authorization: 'Bearer ' + PUBLISHABLE_KEY };
+  let therapists = [], shifts = [], settings = null;
+
+  const $ = id => document.getElementById(id);
+  const esc = v => String(v ?? '').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const photoUrl = path => path ? SUPABASE_URL + '/storage/v1/object/public/' + PHOTO_BUCKET + '/' + path.split('/').map(encodeURIComponent).join('/') : '';
+
+  function jstDate(offset=0){
+    const now = new Date(Date.now()+offset*86400000);
+    const parts = new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
+    const get=t=>parts.find(p=>p.type===t).value;
+    return `${get('year')}-${get('month')}-${get('day')}`;
+  }
+  function dayLabel(iso){
+    const d = new Date(iso+'T12:00:00+09:00');
+    const md = new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',month:'numeric',day:'numeric'}).format(d);
+    const dow = new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',weekday:'short'}).format(d);
+    return {md,dow};
+  }
+  async function getJson(path){
+    const r = await fetch(API + path,{headers,cache:'no-store'});
+    if(!r.ok) throw new Error(`Data API ${r.status}`);
+    return r.json();
+  }
+  function renderTherapists(){
+    if(!therapists.length){ $('therapistGrid').innerHTML='<div class="empty">現在公開中のセラピストはいません。</div>'; return; }
+    $('therapistGrid').innerHTML = therapists.map(t=>`<article class="card">
+      <div class="photo">${t.photo_path?`<img src="${photoUrl(t.photo_path)}" alt="${esc(t.name)}" loading="lazy">`:esc((t.name||'R').slice(0,1))}</div>
+      <div class="body"><div class="name"><strong>${esc(t.name)}</strong>${t.age?`<span class="age">${esc(t.age)}歳</span>`:''}</div>${t.memo?`<p class="memo">${esc(t.memo)}</p>`:''}</div>
+    </article>`).join('');
+  }
+  function renderSchedule(){
+    const byTherapist = Object.fromEntries(therapists.map(t=>[t.id,t]));
+    const days = Array.from({length:7},(_,i)=>jstDate(i));
+    $('scheduleList').innerHTML = days.map((date,i)=>{
+      const {md,dow}=dayLabel(date);
+      const rows = shifts.filter(s=>s.shift_date===date).sort((a,b)=>String(a.start_label).localeCompare(String(b.start_label)));
+      return `<section class="day"><div class="dayhead"><span class="date">${i===0?'TODAY · ':''}${esc(md)}</span><span class="dow">${esc(dow)}</span></div>
+        <div class="rows">${rows.length?rows.map(s=>`<div class="row"><span class="who">${esc(byTherapist[s.therapist_id]?.name||'')}</span><span class="time">${esc(s.start_label)} — ${esc(s.end_label)}</span></div>`).join(''):'<div class="empty">出勤予定はありません</div>'}</div></section>`;
+    }).join('');
+  }
+  function renderSettings(){
+    if(!settings) return;
+    $('storeName').textContent = settings.store_name || 'REPOS';
+    $('storeHours').textContent = '営業時間 ' + (settings.business_hours || '—');
+    $('storeArea').textContent = settings.base_area || '—';
+  }
+  async function load(){
+    const from=jstDate(0), to=jstDate(6);
+    $('syncText').textContent='更新中';
+    try{
+      const [ts,ss,st] = await Promise.all([
+        getJson('/therapists?select=id,name,age,memo,photo_path,created_at&active=eq.true&order=created_at.asc'),
+        getJson('/shifts?select=id,therapist_id,shift_date,start_label,end_label&shift_date=gte.'+from+'&shift_date=lte.'+to+'&order=shift_date.asc,start_label.asc'),
+        getJson('/store_settings?select=store_name,business_hours,base_area&id=eq.1&limit=1')
+      ]);
+      therapists=ts; shifts=ss; settings=st[0]||null;
+      renderTherapists(); renderSchedule(); renderSettings();
+      $('errorBox').innerHTML='';
+      const t = new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',second:'2-digit'}).format(new Date());
+      $('syncText').textContent='最終更新 '+t;
+    }catch(err){
+      console.error(err);
+      $('syncText').textContent='更新エラー';
+      $('errorBox').innerHTML='<div class="error">表示データを取得できませんでした。しばらくしてから再読み込みしてください。</div>';
+    }
+  }
+  load();
+  setInterval(load,20000);
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) load(); });
+})();
+</script>
+</body>
+</html>
